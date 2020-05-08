@@ -1,0 +1,1 @@
+This will be information for how to navigate the movie api
