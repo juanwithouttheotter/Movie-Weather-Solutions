@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
+
         <div class="row">
             <div class="col-md-12 text-light d-flex justify-content-center bg-dark">
                 <div id="heading">
@@ -22,45 +23,44 @@
                 </div>
             </div>
         </div>
-        <div class="row maincontent">
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="input-group inptSearch">
-                            <div class="row">
-                                <label>
-                                    <h4>Please select where you live</h4>
-                                </label>
-                                <input type="text" class="form-control" id="searchInput">
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div>
-                            <h3>How about?</h3>
-                        </div>
-                    </div>
+        <div class="row input-group inptSearch">
+            <div class="row">
+                <div class="col-6">
+                    <p>Enter Your Zip Code:</p>
                 </div>
+                <input type="text" class="form-control col-6" id="searchInput">
             </div>
-
-            <div class="col-md-8">
-                <div>
-                    <p>Empty Div for Javascript to write the movie selection</p>
-                </div>
-
-                <div>
-                    <p>Since the weather in your area is</p>
-                </div>
-
-                <div>
-                    <p>Empty Div for Javascript to write the weather in the area</p>
-                </div>
-            </div>
-
         </div>
+
+        <div class="row">
+            <div class="col-6">
+                <p>The weather in your area is:</p>
+            </div>
+            <div class="col-6" id="weathercategory">
+                <p>weather category placeholder to be deleted.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <p>The genre of movie you should watch is:</p>
+            </div>
+            <div class="col-6" id="moviegenre">
+                <p>movie genre placeholder to be deleted.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <p>How about:</p>
+            </div>
+            <div class="col-6" id="moviesuggestion">
+                <p>movie sugestion placeholder to be deleted.</p>
+            </div>
+        </div>
+
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -76,3 +76,12 @@
 </body>
 
 </html>
+
+<!--refactor HTML to basic code with a placeholder for user input, display weather category, display movie genre, display movie suggestion 
+    find weather based off of user input of zip code
+    display weather category to div in html
+    store weather category as variable
+    make rules for weather and movie interaction
+    get list of movies using weather/movie rules from API
+    store random movie from genre as variable
+    display random movie from genre according to weather/movie rules -->
