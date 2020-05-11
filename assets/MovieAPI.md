@@ -1,53 +1,17 @@
 This will be information for how to navigate the movie api
 
-here are all of the keys for the movies from 
+Switched over to The movie data base, to allow for genre search. 
 
-https://rapidapi.com/IMDb-API/api/imdb-api1
+search by genre (use code number):
+Action<28>, Adventure<12>, Animation<16>, Comedy<35>, Crime<80>, Documentary<99>,
+Drama<18>, Family<10751>, Fantasy<14>, History<36>, Horror<27>, Music<10402>, Mystery<9648>,
+Romance<10749>, Science Fiction<878>, TV Movie<10770>, Thriller<53>, War<10752>, Western<37>
 
-id: null,
-  title: null,
-  originalTitle: null,
-  fullTitle: null,
-  type: null,
-  year: null,
-  image: null,
-  releaseDate: null,
-  runtimeMins: null,
-  runtimeStr: null,
-  plot: null,
-  plotLocal: null,
-  plotLocalIsRtl: false,
-  awards: null,
-  directors: null,
-  directorList: null,
-  writers: null,
-  writerList: null,
-  stars: null,
-  starList: null,
-  actorList: null,
-  fullCast: null,
-  genres: null,
-  genreList: null,
-  companies: null,
-  companyList: null,
-  countries: null,
-  countryList: null,
-  languages: null,
-  languageList: null,
-  contentRating: null,
-  imDbRating: null,
-  imDbRatingVotes: null,
-  metacriticRating: null,
-  ratings: null,
-  wikipedia: null,
-  posters: null,
-  images: null,
-  trailer: null,
-  boxOffice: null,
-  tagline: null,
-  keywords: null,
-  keywordList: null,
-  similars: null,
-  tvSeriesInfo: null,
-  tvEpisodeInfo: null,
-  errorMessage: 'Invalid API Key'
+"https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + {genre code}
+
+for more results possibly randomize page number "&page=1" most lists are out of 400+
+
+Keys:
+  title:
+  overview:
+  release_date:
