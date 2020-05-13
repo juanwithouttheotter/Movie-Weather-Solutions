@@ -57,6 +57,24 @@ $(document).ready(function () {
             });
         }
     });
+    //refacting the weather url
+    $("#searchInput").keydown(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            var zipcode = $("#searchInput").val();
+            console.log(zipcode);
+            showWeatherConditions(zipcode);
+        }
+    });
+
+    function showWeatherConditions(zipcode) {
+
+        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + zipcode + "&appid=b212266a3b5800f1c727bf9539b273bb";
+
+        $.get(weatherUrl, function (response) {
+             
+        });
+    }
 
     //retrieving movies by genre code
     // see MovieAPI.md for more genre codes
@@ -68,5 +86,5 @@ $(document).ready(function () {
         console.log(response.results[3]);
         console.log(response.results[3].title);
     });
-    
+
 });
