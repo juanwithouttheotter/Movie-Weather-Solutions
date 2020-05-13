@@ -65,12 +65,15 @@ $(document).ready(function () {
     //retrieving movies by genre code
     // see MovieAPI.md for more genre codes
     var genreCode = 28;
-    var movieURL = 'https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=' + genreCode
+    var pageNum = Math.floor((Math.random() * 400) + 1);
+    var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNum}&with_genres=${genreCode}`
     $.get(movieURL, function (response) {
+        var randomMovie = Math.floor((Math.random() * response.results.length));
+        //<img src="image.tmbd.org/t/p/w500/${response.results[randomMovie].poster_path}" alt="${response.results[randomMovie].title} poster"/>
+        
         //examples of key retrieval paths
         console.log(response.page);
-        console.log(response.results[3]);
-        console.log(response.results[3].title);
+        console.log(response.results[randomMovie]);
+        console.log(response.results[randomMovie].title);
     });
-
 });
