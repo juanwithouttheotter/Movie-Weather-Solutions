@@ -36,27 +36,7 @@ $(document).ready(function () {
     //         return entry.city + ', ' + entry.state_id;
     //     });
     // }
-    // $("#searchInput").keydown(function (event) {
-    //     var keycode = (event.keyCode ? event.keyCode : event.which);
-    //     if (keycode == '13') {
-    //         var zipcode = $("#searchInput").val();
-    //         console.log(zipcode);
-    //         var APIKey = "b212266a3b5800f1c727bf9539b273bb";
-    //         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + zipcode + ",Us&appid=" + APIKey;
-    //         $.ajax({
-    //             url: queryURL,
-    //             method: "GET"
-    //         }).then(function (response) {
-    //             $.ajax({ url: queryURL, method: 'GET' })
-    //             var tempFahrenheit = Math.round(((response.main.temp) - 273.15) * 1.80 + 32);
-    //             console.log(response);
-
-    //             var main = response.weather.temp;
-
-
-    //         });
-    //     }
-    // });
+    
     //refacting the weather url
     $("#searchInput").keydown(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
