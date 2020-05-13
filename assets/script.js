@@ -36,7 +36,7 @@ $(document).ready(function () {
     //         return entry.city + ', ' + entry.state_id;
     //     });
     // }
-    
+
     //refacting the weather url
     $("#searchInput").keydown(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -69,11 +69,14 @@ $(document).ready(function () {
     var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNum}&with_genres=${genreCode}`
     $.get(movieURL, function (response) {
         var randomMovie = Math.floor((Math.random() * response.results.length));
+        //poster image
         //<img src="image.tmbd.org/t/p/w500/${response.results[randomMovie].poster_path}" alt="${response.results[randomMovie].title} poster"/>
-        
-        //examples of key retrieval paths
-        console.log(response.page);
+
+        //to be later used to append to html
         console.log(response.results[randomMovie]);
         console.log(response.results[randomMovie].title);
+        console.log(response.results[randomMovie].overview);
+        console.log(response.results[randomMovie].release_date);
+
     });
 });
