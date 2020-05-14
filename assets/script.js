@@ -41,26 +41,54 @@ $(document).ready(function () {
     $("#searchInput").keydown(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
-            var zipcode = $("#searchInput").val();
-            console.log(zipcode);
-            showWeatherConditions(zipcode);
+            var cityObject = $("#searchInput").val();
+            console.log(cityObject);
+            showWeatherConditions(cityObject);
         }
     });
 
-    function showWeatherConditions(zipcode) {
+    function showWeatherConditions(cityObject) {
 
-        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + zipcode + "&appid=b212266a3b5800f1c727bf9539b273bb";
+        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityObject + "&appid=b212266a3b5800f1c727bf9539b273bb";
 
         $.get(weatherUrl, function (response) {
 
-            onWeatherInformation(response, zipcode);
+            onWeatherInformation(response, cityObject);
         });
     }
-    function onWeatherInformation(response, zipcode) {
 
-        var weather = response.weather[0].main;
-        $('#weathercategory').html(weather);
+    //rule for the weather and the genre
+    function WeatherGenreMap() {
     }
+    
+    WeatherGenreMap.prototype.Weather = "";
+    WeatherGenreMap.prototype.Genres = "";
+    
+    function getWeatherGenreMappings() {
+        var mappingArray = [];
+    
+        mappingArray.push(createWeatherGenreMap('Clear', '28,10752'));
+        mappingArray.push(createWeatherGenreMap('Tornado', '9648'));
+        mappingArray.push(createWeatherGenreMap('Fog', '12,16'));
+        mappingArray.push(createWeatherGenreMap('Drizzle', '80'));
+        mappingArray.push(createWeatherGenreMap('Clouds', '37,36'));
+        mappingArray.push(createWeatherGenreMap('Rain', '10749,10402,14'));
+        mappingArray.push(createWeatherGenreMap('Thunderstorm', '27,878'));
+        mappingArray.push(createWeatherGenreMap('Snow', '18,10751'));
+        mappingArray.push(createWeatherGenreMap('Mist', '35'));
+    
+        return mappingArray;
+    }
+    
+    function createWeatherGenreMap(weather,  genres) {
+       var weatherGenreMap = new WeatherGenreMap();
+       weatherGenreMap.Weather = weather;
+       weatherGenreMap.Genres = genres;
+    
+       return weatherGenreMap;
+    }
+    
+    
 
     //retrieving movies by genre code
     // see MovieAPI.md for more genre codes

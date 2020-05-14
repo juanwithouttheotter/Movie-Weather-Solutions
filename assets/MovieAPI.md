@@ -9,6 +9,8 @@ Romance<10749>, Science Fiction<878>, TV Movie<10770>, Thriller<53>, War<10752>,
 
 "https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + {genre code}
 
+https://api.themoviedb.org/3/genre/movie/list?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd
+
 for more results possibly randomize page number "&page=1" most lists are out of 400+
 
 Keys:
