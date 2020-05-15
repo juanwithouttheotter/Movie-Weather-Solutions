@@ -20,17 +20,16 @@
             <div class="row">
                 <div class="col-md-12 text-light d-flex justify-content-center bg-dark">
                     <div id="heading">
-                        <h1>Input ZIP code to find out what movies are most viewing at the moment over there</h1>
-                    </div>
+                        <h1>What are people watching in your favorite city?</h1>
                 </div>
             </div>
 
             <div class="row input-group inline inptSearch">
                     <div class="col-md-12">
                         <form>
-                            <label for="demo" class="mx-auto">Enter Your Zip Code:</label>
+                            <label for="demo" class="mx-auto">Enter your favorite city:</label>
                             <div class="input-group mb-3" class="mx-auto">
-                                <input type="text" class="form-control" minlength="5" maxlength="5" id="searchInput">
+                                <input type="text" class="form-control userCity" minlength="5" maxlength="5" id="searchInput">
                             </div>
                         </form>
                     </div>
@@ -40,7 +39,7 @@
         <div class="row 2nd-screen">
             <div class="row">
                 <div class="col-md-4">
-                    <p>Folks is watching:</p>
+                    <p>People are watching:</p>
                 </div>
                 <div class="col-md-8" id="moviegenre">
                     <p>movie genre placeholder to be deleted.</p>
@@ -49,15 +48,15 @@
 
             <div class="row confirmation">
                 <div class="col-md-12">
-                    <p>Are you interested in why people likes those?</p>
+                    <p>Do you want to know why people are watching those movies?</p>
                     <div class="row buttons">
-                        <button class="col-md-6">Fire away!</button>
-                        <button class="col-md-6">I'll go to sleep.</button>
+                        <button class="col-md-6">Aboslutely, Fire away!</button>
+                        <button class="col-md-6">Nah, I think I'll go to sleep.</button>
                     </div>
                 </div>
                 <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
                 <div class="col-md-12">
-                    <p>We believe you accidentally hit the wrong button, no worries at all!</p>
+                    <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
                 </div>
             </div>
         </div>
@@ -66,23 +65,23 @@
             <!-- on the top of the screen show up the same movies info as before in less scale -->
             <div class="row">
                 <div class="col-md-4">
-                    <p>Folks is watching:</p>
+                    <p>People are watching:</p>
                 </div>
-                <div class="col-md-8" id="moviegenre">
+                <div class="col-md-8 movieChoice" id="moviegenre">
                     <p>movie genre placeholder to be deleted.</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <p>Becouse the weather in your area is:</p>
+                    <p>Because the weather in your area is:</p>
                 </div>
-                <div class="col-md-8" id="weathercategory">
+                <div class="col-md-8 weatherToday" id="weathercategory">
                     <p>weather category placeholder to be deleted.</p>
                 </div>
             </div>
             <div class="row">
                 <button class="col-md-12">
-                    If you do like neither movies of those, try again to find a warmer location.
+                    If you don't like either of these movies, try again to find a warmer location.
                 </button>
             </div>
         </div>
