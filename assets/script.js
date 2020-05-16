@@ -41,62 +41,43 @@ $(document).ready(function () {
     $("#searchInput").keydown(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
-            var cityObject = $("#searchInput").val();
-            console.log(cityObject);
-            showWeatherConditions(cityObject);
+            var userCityString = $("#searchInput").val();
+            console.log(userCityString);
+            showWeatherConditions(userCityString);
         }
     });
 
-    function showWeatherConditions(cityObject) {
-
-        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityObject + "&appid=b212266a3b5800f1c727bf9539b273bb";
-
+    function showWeatherConditions(userCityString) {
+        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userCityString + "&appid=b212266a3b5800f1c727bf9539b273bb";
         $.get(weatherUrl, function (response) {
-
-            onWeatherInformation(response, cityObject);
+            var weather = response.weather[0].main;
+            console.log(weather);
+            onWeatherInformation(weather);
         });
     }
 
-    //rule for the weather and the genre
-    function WeatherGenreMap() {
+
+    function getWeatherGenreMappings(weather) {
+        var weatherMapping = {
+            Clear: [28,10752],
+            Tornado: [9648],
+            Fog: [12,16],
+            Drizzle: [80],
+            Clouds: [37,36],
+            Rain: [10749,10402,14],
+            Thunderstorm: [27,878],
+            Snow: [18,10751],
+            Mist: [35] 
+        }
+        return weatherMapping[weather] 
+
     }
 
-    WeatherGenreMap.prototype.Weather = "";
-    WeatherGenreMap.prototype.Genres = "";
 
-    function getWeatherGenreMappings() {
-        var mappingArray = [];
-
-        mappingArray.push(createWeatherGenreMap('Clear', '28,10752'));
-        mappingArray.push(createWeatherGenreMap('Tornado', '9648'));
-        mappingArray.push(createWeatherGenreMap('Fog', '12,16'));
-        mappingArray.push(createWeatherGenreMap('Drizzle', '80'));
-        mappingArray.push(createWeatherGenreMap('Clouds', '37,36'));
-        mappingArray.push(createWeatherGenreMap('Rain', '10749,10402,14'));
-        mappingArray.push(createWeatherGenreMap('Thunderstorm', '27,878'));
-        mappingArray.push(createWeatherGenreMap('Snow', '18,10751'));
-        mappingArray.push(createWeatherGenreMap('Mist', '35'));
-
-        return mappingArray;
-    }
-
-    function createWeatherGenreMap(weather, genres) {
-        var weatherGenreMap = new WeatherGenreMap();
-        weatherGenreMap.Weather = weather;
-        weatherGenreMap.Genres = genres;
-
-        return weatherGenreMap;
-    }
-
-    function onWeatherInformationReturned(response, cityObject){
-        var weather = response.current.weather[0].main; //Clear
-        var weatherGenreMappings = getWeatherGenreMappings();
-        var genresForWeather = weatherGenreMappings.find(function(element){
-            return element.Weather == weather;
-        });
-        var genreCode = genresForWeather.Genres;
-        var pageNum = Math.floor((Math.random() * 400) + 1);
-        var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNum}&with_genres=${genreCode}`;
+    function onWeatherInformation(weather){
+        var genreCode = getWeatherGenreMappings(weather);
+        console.log(genreCode);
+        var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=${genreCode.join()}`;
         $.get(movieURL, function (response) {
             var randomMovie = Math.floor((Math.random() * response.results.length));
             console.log(response);
