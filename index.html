@@ -17,76 +17,98 @@
     <div class="container" >
         <!-- here is a start screen, with the only one question and input form -->
         <div class="row h-100 screen-1st">
-            <div class="=col-md-12 justify-content-center screen">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 text-light d-flex justify-content-center bg-dark rounded jumbotron">
+            <div class="col justify-content-center screen">
+                <!-- <div class="row justify-content-center"> -->
+                    <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
                             <h1>What are people watching in your favorite city?</h1>
                     </div>
-                </div>
-                <div class="row inptSearch">
+                <!-- </div> -->
+                <!-- <div class="row inptSearch"> -->
                     <div class="col-md-12 ">
                         <!-- <form > -->
-                            <label for="demo" class="d-flex justify-content-center">Enter your favorite city:</label>
+                            <!-- <label for="demo" class="d-flex justify-content-center">Enter your favorite city:</label> -->
                             <div class="input-group mb-3 d-flex justify-content-center">
-                                <input type="text" class="form-control userCity" id="searchInput">
+                                <input type="text" class="form-control userCity" placeholder="Enter your favorite city:" id="searchInput">
                             </div>
                         <!-- </form> -->
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
         <!-- here is the next screen for movie API's information -->
         <div class="row h-100 screen-2nd" >
-            <div class="row">
-                <div class="col-md-4">
-                    <p>People are watching:</p>
-                </div>
-                <div class="col-md-8" id="moviegenre">
-                    <p>movie genre placeholder to be deleted.</p>
-                </div>
-            </div>
-
-            <div class="row confirmation">
-                <div class="col-md-12">
-                    <p>Do you want to know why people are watching those movies?</p>
-                    <div class="row buttons">
-                        <button class="col-md-6" id='buttonyes'>Aboslutely, Fire away!</button>
-                        <button class="col-md-6"id='buttonno'>Nah, I think I'll go to sleep.</button>
+            <div class="col justify-content-center screen">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>People are watching:</p>
+                        <div class="poster"></div>
+                        
+                    </div>
+                    <div class="col-md-8" id="moviegenre">
+                        <!-- <p>movie genre placeholder to be deleted.</p>
+                        <p>Movie title:</p>
+                        <p>
+                        Movie release date:
+                        </p>
+                        <p>
+                        Movie Overview:
+                        </p>
+                        <p>
+                        Movie poster image,
+                        </p>
+                        <p>
+                        movie img alt tag has movie title + 'poster' 
+                        </p> -->
                     </div>
                 </div>
-                <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
-                <div class="col-md-12" id='wrongbutton'>
-                    <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
+
+                <div class="row confirmation">
+                    <div class="col-md-12">
+                        <div class="text-light d-flex justify-content-center bg-dark rounded">
+                            <h3>Do you want to know why people are watching those movies?</h3>
+                        </div>
+                        <div class="row buttons">
+                            <button class="col-md-6" id='buttonyes'>Aboslutely, Fire away!</button>
+                            <button class="col-md-6"id='buttonno'>Nah, I think I'll go to sleep.</button>
+                        </div>
+                    </div>
+                    <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
+                    <div class="col-md-12" id='wrongbutton'>
+                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
+                    </div>
                 </div>
-            </div>
+            </div>  
         </div>
         <!-- here last screen for weather API's information and restaring application-->
         <div class="row h-100 screen-3d">
             <!-- on the top of the screen show up the same movies info as before in less scale -->
-            <div class="row">
-                <div class="col-md-4">
-                    <p>People are watching:</p>
+            <div class="col justify-content-center screen">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>People are watching:</p>
+                    </div>
+                    <div class="col-md-8 movieChoice" id="moviegenre2">
+                        <!-- <p>movie genre placeholder to be deleted.</p> -->
+                    </div>
                 </div>
-                <div class="col-md-8 movieChoice" id="moviegenre2">
-                    <p>movie genre placeholder to be deleted.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Because the weather in your area is:</p>
+                    </div>
+                    <div class="col-md-8 weatherToday" id="weathercategory">
+                        <!-- <p>weather category placeholder to be deleted.</p> -->
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <p>Because the weather in your area is:</p>
+                <div class="row">
+                    <button class="col-md-12">
+                        If you don't like either of these movies, try again to find a warmer location.
+                    </button>
                 </div>
-                <div class="col-md-8 weatherToday" id="weathercategory">
-                    <p>weather category placeholder to be deleted.</p>
-                </div>
-            </div>
-            <div class="row">
-                <button class="col-md-12">
-                    If you don't like either of these movies, try again to find a warmer location.
-                </button>
             </div>
         </div>
-
+        <a href="http://www.freepik.com">Designed by dgim-studio / Freepik</a>
     </div>
+    
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
