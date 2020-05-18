@@ -53,6 +53,7 @@ $(document).ready(function () {
             var weather = response.weather[0].main;
             console.log(weather);
             onWeatherInformation(weather);
+            $("#weathercategory").append(`<p> ${weather}</p>`);
         });
     }
 
@@ -81,10 +82,43 @@ $(document).ready(function () {
         $.get(movieURL, function (response) {
             var randomMovie = Math.floor((Math.random() * response.results.length));
             console.log(response);
-            console.log(response.results[randomMovie]);
+            var movie = response.results[randomMovie];
+            console.log(movie);
+            var title = movie.title;
+            console.log(title);
+            var releaseDate = movie.release_date;
+            var overview = movie.overview;
+            var poster = movie.poster_path;
+            $("#moviegenre").append(`
+                <p>Movie title: ${title}.</p>
+                <p>Movie release date: ${releaseDate}.</p>
+                <p>Movie Overview: ${overview}.</p>`
+                );
+            $(".poster").append(`<p><img src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+            $("#moviegenre2").append(`
+            <p>Movie title: ${title}.</p>
+            <p>Movie release date: ${releaseDate}.</p>
+            <p>Movie Overview: ${overview}.</p>`
+            );
+            $(".screen-1st").hide();
+            $(".screen-2nd").show();
         });
     }
 
+    $("#buttonyes").click(function(){
+        lastscreen();
+    })
 
+    $("#buttonno").click(function(){
+        $("#wrongbutton").css("visibility", "visible");
+        $(".screen-1st").delay(2000).hide(0);
+        $(".screen-2nd").delay(2000).hide(0);
+        $(".screen-3d").delay(2000).show(0);
+    })
 
+    function lastscreen(){
+        $(".screen-1st").hide();
+        $(".screen-2nd").hide();
+        $(".screen-3d").show();
+    }
 });
