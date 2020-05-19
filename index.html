@@ -18,23 +18,19 @@
         <!-- here is a start screen, with the only one question and input form -->
         <div class="row h-100 screen-1st">
             <div class="col justify-content-center screen">
-                <!-- <div class="row justify-content-center"> -->
-                    <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
-                            <h1>What are people watching in your favorite city?</h1>
+                <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
+                    <h1>What are people watching in your favorite city?</h1>
+                </div>
+                <div class="col-md-12 ">
+                    <!-- <form > -->
+                    <div class="input-group mb-3 d-flex justify-content-center">
+                        <input type="text" class="form-control userCity" placeholder="Enter your favorite city:" id="searchInput">
                     </div>
-                <!-- </div> -->
-                <!-- <div class="row inptSearch"> -->
-                    <div class="col-md-12 ">
-                        <!-- <form > -->
-                            <!-- <label for="demo" class="d-flex justify-content-center">Enter your favorite city:</label> -->
-                            <div class="input-group mb-3 d-flex justify-content-center">
-                                <input type="text" class="form-control userCity" placeholder="Enter your favorite city:" id="searchInput">
-                            </div>
-                        <!-- </form> -->
-                    </div>
-                <!-- </div> -->
+                    <!-- </form> -->
+                </div>
             </div>
-        </div>
+            <a href="http://www.freepik.com">Designed by dgim-studio / Freepik</a>
+        </div> 
         <!-- here is the next screen for movie API's information -->
         <div class="row h-100 screen-2nd" >
             <div class="col justify-content-center screen">
@@ -73,11 +69,19 @@
                         </div>
                     </div>
                     <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
-                    <div class="col-md-12" id='wrongbutton'>
-                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal fade" id='wrongbutton'>
+                                <div class="modal-dialog modal-dialog-centered modal-lg ">
+                                    <div class="modal-content">
+                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
                 </div>
-            </div>  
+            </div>
         </div>
         <!-- here last screen for weather API's information and restaring application-->
         <div class="row h-100 screen-3d">
@@ -86,6 +90,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <p>People are watching:</p>
+                        <div class="poster2"></div>
                     </div>
                     <div class="col-md-8 movieChoice" id="moviegenre2">
                         <!-- <p>movie genre placeholder to be deleted.</p> -->
@@ -106,7 +111,6 @@
                 </div>
             </div>
         </div>
-        <a href="http://www.freepik.com">Designed by dgim-studio / Freepik</a>
     </div>
     
     
