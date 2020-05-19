@@ -1,9 +1,9 @@
-*{
+/* *{
     border: 1px;
     border-color: brown;
     border-style: solid;
     color: brown;
-}
+} */
 html, body {
     height: 100%;
 }
@@ -11,12 +11,6 @@ html, body {
 .container {
     height: 100%;
 }
-/* 
-.heading{
-    width: 100%;
-    height: 70px;
-    background-color: black;
-} */
 
 .hide{
     display: none;
@@ -27,9 +21,6 @@ body{
     background-size: 20%;
     background-repeat: repeat;
 }
-/* label{
-    font-size: x-large;
-} */
 
 .screen{
     background-color:rgba(255, 255, 255, 0.829);
@@ -39,7 +30,6 @@ body{
     margin-top: 3.5%;
     margin-bottom: 3%;
     padding: 5%;
-    /* padding-right: 5%; */
 }
 
 .rounded{
@@ -51,13 +41,15 @@ body{
     max-width: 30%;
     min-width: 200px;
 }
-img{
+.img1{
+    width: 90%;
     max-height: 400px;
 }
-
-#wrongbutton{
-    visibility: hidden;
+.img2{
+    width: 90%;
+    max-width: 200px;
 }
+
 button:hover{
     background-color: rgb(106, 178, 245);
 }
@@ -70,4 +62,20 @@ button:hover{
 .screen-3d
 {
     display:none;
+}
+a{  
+    position: absolute;
+    bottom: 1vh;
+    left : 25vh;
+    color: black;
+}
+.modal-content{
+    font-weight: bold;
+    text-align: center;
+    height: 40vh;
+    color: red
+}
+
+.modal-content p{
+    margin: auto;
 }
