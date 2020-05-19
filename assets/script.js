@@ -94,7 +94,10 @@ $(document).ready(function () {
                 <p>Movie release date: ${releaseDate}.</p>
                 <p>Movie Overview: ${overview}.</p>`
                 );
-            $(".poster").append(`<p><img src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+            // poster output on 2nd screen
+            $(".poster").append(`<p><img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+            // poster output in last screen
+            $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
             $("#moviegenre2").append(`
             <p>Movie title: ${title}.</p>
             <p>Movie release date: ${releaseDate}.</p>
@@ -110,10 +113,13 @@ $(document).ready(function () {
     })
 
     $("#buttonno").click(function(){
-        $("#wrongbutton").css("visibility", "visible");
-        $(".screen-1st").delay(2000).hide(0);
-        $(".screen-2nd").delay(2000).hide(0);
-        $(".screen-3d").delay(2000).show(0);
+        $("#wrongbutton").modal('show');
+        setInterval(() => {
+            $(".screen-1st").hide(0);
+            $(".screen-2nd").hide(0);
+            $(".screen-3d").show(0);
+            $("#wrongbutton").modal('hide')
+        }, 3000);
     })
 
     function lastscreen(){
