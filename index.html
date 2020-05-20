@@ -10,7 +10,7 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Movie kaleidoscope</title>
+    <title>Weather Movie Picker</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <div class="row h-100 screen-1st">
             <div class="col justify-content-center screen">
                 <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
-                    <h1>What are people watching in your favorite city?</h1>
+                    <h1>What Movie Are People Watching In Your Favorite City?</h1>
                 </div>
                 <div class="col-md-12 ">
                     <!-- <form > -->
@@ -33,6 +33,30 @@
         <!-- here is the next screen for movie API's information -->
         <div class="row h-100 screen-2nd" >
             <div class="col justify-content-center screen">
+                <div class="row confirmation">
+                    <div class="col-md-12">
+                        <div class="text-light d-flex justify-content-center bg-dark rounded">
+                            <h3>Do you want to know why people are watching that movie?</h3>
+                        </div>
+                        <div class="row buttons">
+                            <div class='col-md-3'></div>
+                            <button class="col-md-3" id='buttonyes'>Aboslutely, Fire away!</button>
+                            <button class="col-md-3"id='buttonno'>Nah, I think I'll go to sleep.</button>
+                        </div>
+                    </div>
+                    <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal fade" id='wrongbutton'>
+                                <div class="modal-dialog modal-dialog-centered modal-lg ">
+                                    <div class="modal-content">
+                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <p>People are watching:</p>
@@ -57,35 +81,21 @@
                     </div>
                 </div>
 
-                <div class="row confirmation">
-                    <div class="col-md-12">
-                        <div class="text-light d-flex justify-content-center bg-dark rounded">
-                            <h3>Do you want to know why people are watching those movies?</h3>
-                        </div>
-                        <div class="row buttons">
-                            <button class="col-md-6" id='buttonyes'>Aboslutely, Fire away!</button>
-                            <button class="col-md-6"id='buttonno'>Nah, I think I'll go to sleep.</button>
-                        </div>
-                    </div>
-                    <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="modal fade" id='wrongbutton'>
-                                <div class="modal-dialog modal-dialog-centered modal-lg ">
-                                    <div class="modal-content">
-                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>      
-                </div>
+                
             </div>
         </div>
         <!-- here last screen for weather API's information and restaring application-->
         <div class="row h-100 screen-3d">
             <!-- on the top of the screen show up the same movies info as before in less scale -->
             <div class="col justify-content-center screen">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Because the weather in that city is:</p>
+                    </div>
+                    <div class="col-md-8 weatherToday" id="weathercategory">
+                        <!-- <p>weather category placeholder to be deleted.</p> -->
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <p>People are watching:</p>
@@ -95,17 +105,11 @@
                         <!-- <p>movie genre placeholder to be deleted.</p> -->
                     </div>
                 </div>
+                
                 <div class="row">
-                    <div class="col-md-4">
-                        <p>Because the weather in your area is:</p>
-                    </div>
-                    <div class="col-md-8 weatherToday" id="weathercategory">
-                        <!-- <p>weather category placeholder to be deleted.</p> -->
-                    </div>
-                </div>
-                <div class="row">
-                    <button class="col-md-12 warmerLocation">
-                        If you don't like either of these movies, try again to find a warmer location.
+                    <div class='col-md-3'></div>
+                    <button class="col-md-6 warmerLocation">
+                        If you don't like this movie, try again to find a new one!
                     </button>
                 </div>
             </div>
@@ -127,11 +131,3 @@
 
 </html>
 
-<!--refactor HTML to basic code with a placeholder for user input, display weather category, display movie genre, display movie suggestion 
-    find weather based off of user input of zip code
-    display weather category to div in html
-    store weather category as variable
-    make rules for weather and movie interaction
-    get list of movies using weather/movie rules from API
-    store random movie from genre as variable
-    display random movie from genre according to weather/movie rules -->
