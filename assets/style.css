@@ -16,12 +16,6 @@ html, body {
     display: none;
 }
 
-body{
-    background-image: url('./media/seamless-pattern-with-cinema-elements/1155.jpg');
-    background-size: 20%;
-    background-repeat: repeat;
-}
-
 .screen{
     background-color:rgba(255, 255, 255, 0.829);
     border-radius: 30px;
@@ -62,12 +56,6 @@ button:hover{
 .screen-3d
 {
     display:none;
-}
-a{  
-    position: absolute;
-    bottom: 1vh;
-    left : 25vh;
-    color: black;
 }
 .modal-content{
     font-weight: bold;
