@@ -33,11 +33,37 @@
         <!-- here is the next screen for movie API's information -->
         <div class="row h-100 screen-2nd" >
             <div class="col justify-content-center screen">
+                
+
+                <div class="row confirmation">
+                    <div class="col-md-12">
+                        <div class="text-light d-flex justify-content-center bg-dark rounded">
+                            <h3>Do you want to know why people are watching this movie?</h3>
+                        </div>
+                        <div class="row buttons">
+                            <div class="col-md-3"></div>
+                            <button class="col-md-3" id='buttonyes'>Aboslutely, Fire away!</button>
+                            <button class="col-md-3"id='buttonno'>Nah, I think I'll go to sleep.</button>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </div>
+                    <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal fade" id='wrongbutton'>
+                                <div class="modal-dialog modal-dialog-centered modal-lg ">
+                                    <div class="modal-content">
+                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <p>People are watching:</p>
                         <div class="poster"></div>
-                        
                     </div>
                     <div class="col-md-8" id="moviegenre">
                         <!-- <p>movie genre placeholder to be deleted.</p>
@@ -56,30 +82,6 @@
                         </p> -->
                     </div>
                 </div>
-
-                <div class="row confirmation">
-                    <div class="col-md-12">
-                        <div class="text-light d-flex justify-content-center bg-dark rounded">
-                            <h3>Do you want to know why people are watching those movies?</h3>
-                        </div>
-                        <div class="row buttons">
-                            <button class="col-md-6" id='buttonyes'>Aboslutely, Fire away!</button>
-                            <button class="col-md-6"id='buttonno'>Nah, I think I'll go to sleep.</button>
-                        </div>
-                    </div>
-                    <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="modal fade" id='wrongbutton'>
-                                <div class="modal-dialog modal-dialog-centered modal-lg ">
-                                    <div class="modal-content">
-                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>      
-                </div>
             </div>
         </div>
         <!-- here last screen for weather API's information and restaring application-->
@@ -97,7 +99,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>Because the weather in your area is:</p>
+                        <p>Because the weather in the area is:</p>
                     </div>
                     <div class="col-md-8 weatherToday" id="weathercategory">
                         <!-- <p>weather category placeholder to be deleted.</p> -->
@@ -105,7 +107,7 @@
                 </div>
                 <div class="row">
                     <button class="col-md-12 warmerLocation">
-                        If you don't like either of these movies, try again to find a warmer location.
+                        If you don't like this movie, try again to find a new one!
                     </button>
                 </div>
             </div>
