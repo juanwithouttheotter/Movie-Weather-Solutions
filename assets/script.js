@@ -60,25 +60,25 @@ $(document).ready(function () {
 
     function getWeatherGenreMappings(weather) {
         var weatherMapping = {
-            Clear: [28,10752],
+            Clear: [28, 10752],
             Tornado: [9648],
-            Fog: [12,16],
+            Fog: [12, 16],
             Drizzle: [80],
-            Clouds: [37,36],
-            Rain: [10749,10402,14],
-            Thunderstorm: [27,878],
-            Snow: [18,10751],
-            Mist: [35] 
+            Clouds: [37, 36],
+            Rain: [10749, 10402, 14],
+            Thunderstorm: [27, 878],
+            Snow: [18, 10751],
+            Mist: [35]
         }
-        return weatherMapping[weather] 
+        return weatherMapping[weather]
 
     }
 
 
-    function onWeatherInformation(weather){
+    function onWeatherInformation(weather) {
         var genreCode = getWeatherGenreMappings(weather);
         console.log(genreCode);
-        var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=${genreCode.join()}`;
+        var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&with_genres=${genreCode.join()}`;
         $.get(movieURL, function (response) {
             var randomMovie = Math.floor((Math.random() * response.results.length));
             console.log(response);
@@ -89,28 +89,56 @@ $(document).ready(function () {
             var releaseDate = movie.release_date;
             var overview = movie.overview;
             var poster = movie.poster_path;
+
+            var videosUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US`;
+            $.get(videosUrl, function (response) {
+                var firstvideo = response.results[0];
+                var youtubeUrl = `https://www.youtube.com/embed/${firstvideo.key}`;
+
+                var videohtml = `<iframe width="560" height="315" src="${youtubeUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                $("#moviegenre").append(videohtml);
+            });
+
             $("#moviegenre").append(`
                 <p>Movie title: ${title}.</p>
                 <p>Movie release date: ${releaseDate}.</p>
-                <p>Movie Overview: ${overview}.</p>`
+                <p>Movie Overview: ${overview}.</p>
+            );
+
+            $(".poster").append(`<p><img src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+
                 );
             // poster output on 2nd screen
             $(".poster").append(`<p><img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
             // poster output in last screen
             $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+
             $("#moviegenre2").append(`
             <p>Movie title: ${title}.</p>
             <p>Movie release date: ${releaseDate}.</p>
             <p>Movie Overview: ${overview}.</p>`
             );
+
             $(".screen-1st").hide();
             $(".screen-2nd").show();
         });
     }
+    $('.warmerLocation').on('click', function () {
+       window.location = "./index.html";
+    })
 
-    $("#buttonyes").click(function(){
+    $("#buttonyes").click(function () {
         lastscreen();
     })
+
+
+    $("#buttonno").click(function () {
+        window.location = "./index.html";
+
+        $("#wrongbutton").css("visibility", "visible");
+        $(".screen-1st").delay(2000).hide(0);
+        $(".screen-2nd").delay(2000).hide(0);
+        $(".screen-3d").delay(2000).show(0);
 
     $("#buttonno").click(function(){
         $("#wrongbutton").modal('show');
@@ -120,9 +148,10 @@ $(document).ready(function () {
             $(".screen-3d").show(0);
             $("#wrongbutton").modal('hide')
         }, 3000);
+
     })
 
-    function lastscreen(){
+    function lastscreen() {
         $(".screen-1st").hide();
         $(".screen-2nd").hide();
         $(".screen-3d").show();
