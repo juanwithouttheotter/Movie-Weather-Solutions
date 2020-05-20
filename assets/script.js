@@ -13,12 +13,22 @@ $(document).ready(function () {
     });
 
     function showWeatherConditions(userCityString) {
-        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userCityString + "&appid=b212266a3b5800f1c727bf9539b273bb";
+        var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userCityString + "&appid=b212266a3b5800f1c727bf9539b273bb&units=imperial";
         $.get(weatherUrl, function (response) {
             var weather = response.weather[0].main;
             console.log(weather);
             onWeatherInformation(weather);
-            $("#weathercategory").append(`<p> ${weather}</p>`);
+            $("#weathercategory").append(`
+                <div class="weatherCard col-md-4">
+                    <h2 class="row"> ${weather} </h2>
+                        <img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png" alt="${weather} icon" class="icon"/>
+                    
+                    <div class="row my-2"> Temperature: ${response.main.temp}\&degF </div>
+                    <div class="row my-2"> Wind: ${response.wind.speed} mph </div>
+                    <div class="row my-2"> Humidity: ${response.main.humidity}% </div>
+
+                </div>
+            `);
         });
     }
 
