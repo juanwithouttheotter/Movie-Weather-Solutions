@@ -26,7 +26,6 @@ $(document).ready(function () {
                     <div class="row my-2"> Temperature: ${response.main.temp}\&degF </div>
                     <div class="row my-2"> Wind: ${response.wind.speed} mph </div>
                     <div class="row my-2"> Humidity: ${response.main.humidity}% </div>
-
                 </div>
             `);
         });
@@ -64,24 +63,24 @@ $(document).ready(function () {
             var releaseDate = movie.release_date;
             var overview = movie.overview;
             var poster = movie.poster_path;
-
-            var videosUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US`;
-            $.get(videosUrl, function (response) {
-                var firstvideo = response.results[0];
-                var youtubeUrl = `https://www.youtube.com/embed/${firstvideo.key}`;
-
-                var videohtml = `<iframe width="560" height="315" src="${youtubeUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-                $("#moviegenre").append(videohtml);
-            });
-
+            
             $("#moviegenre").append(`
                 <p>Movie title: ${title}.</p>
                 <p>Movie release date: ${releaseDate}.</p>
                 <p>Movie Overview: ${overview}.</p>`
             );
 
+            var videosUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US`;
+            $.get(videosUrl, function (response) {
+                var firstvideo = response.results[0];
+                var youtubeUrl = `https://www.youtube.com/embed/${firstvideo.key}`;
+
+                var videohtml = `<p class="teaser"><iframe width="560" height="315" src="${youtubeUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>`;
+                $("#moviegenre").append(videohtml);
+            });
+
             // poster output on 2nd screen
-            $(".poster").append(`<p><img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+            $(".poster").append(`<img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster">`);
             // poster output in last screen
             $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
 
