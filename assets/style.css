@@ -17,16 +17,14 @@ html, body {
 }
 
 .screen{
-    background-color:rgba(255, 255, 255, 0.829);
-    border-radius: 30px;
-    height: 90%;
-    width: 100%;
-    margin-top: 3.5%;
-    margin-bottom: 3%;
+    margin: auto;
     padding: 5%;
 }
 
-.rounded{
+.rounded,
+.buttons,
+.warmerLocation{
+    text-align: center;
     margin-top: 2%;
     margin-bottom: 2%;
 } 
@@ -35,13 +33,16 @@ html, body {
     max-width: 30%;
     min-width: 200px;
 }
+div.poster{
+    margin: auto;
+}
 .img1{
-    width: 90%;
-    max-height: 400px;
+    max-width: 90%;
+    margin: auto;
 }
 .img2{
-    width: 90%;
-    max-width: 200px;
+    max-width: 90%;
+    margin: auto;
 }
 
 button:hover{
@@ -66,4 +67,23 @@ button:hover{
 
 .modal-content p{
     margin: auto;
+}
+.row.confirmation{
+    margin-bottom: 2%;
+}
+/* .moviegenre{
+    position: relative;
+} */
+.teaser{
+    position: relative;
+    overflow: hidden;
+  padding-top: 56.25%;
+}
+.teaser iframe{
+    border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
 }
