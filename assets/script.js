@@ -6,7 +6,7 @@ $(document).ready(function () {
     } else {
         var savedMovies = [];
     }
-    
+
 
     //refacting the weather url
     $("#searchInput").keydown(function (event) {
@@ -55,17 +55,20 @@ $(document).ready(function () {
     }
     //function to store onto local storage
     var storeMovie = function (movie) {
-        savedMovies.unshift(
-            {
-                'title': movie.title,
-                'release_date': movie.release_date,
-                'movie_poster': movie.poster_path
+        var alreadySavedMovie = savedMovies.find(function (savedMovie) { return savedMovie.title == movie.title });
+        if (alreadySavedMovie == null) {
+            savedMovies.unshift(
+                {
+                    'title': movie.title,
+                    'release_date': movie.release_date,
+                    'movie_poster': movie.poster_path
+                }
+            );
+            if (savedMovies.length > 6) {
+                savedMovies.pop();
             }
-        );
-        if (savedMovies.length > 6) {
-            savedMovies.pop();
+            localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
         }
-        localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
     }
     //function to append saved movies
     var seeOldMovies = function (savedMovies) {
@@ -98,7 +101,7 @@ $(document).ready(function () {
             var releaseDate = movie.release_date;
             var overview = movie.overview;
             var poster = movie.poster_path;
-            
+
             $("#moviegenre").append(`
                 <p>Movie title: ${title}.</p>
                 <p>Movie release date: ${releaseDate}.</p>
@@ -138,7 +141,7 @@ $(document).ready(function () {
 
     $("#buttonyes").click(function () {
         lastscreen();
-        
+
     })
 
     $("#buttonno").click(function () {
