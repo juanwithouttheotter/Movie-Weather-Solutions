@@ -14,24 +14,33 @@
 </head>
 
 <body>
-    <div class="container" >
+    <div class="container">
         <!-- here is a start screen, with the only one question and input form -->
         <div class="row h-100 screen-1st">
-            <div class="col justify-content-center screen">
-                <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
-                    <h1>What Movie Are People Watching In Your Favorite City?</h1>
-                </div>
-                <div class="col-md-12 ">
-                    <!-- <form > -->
-                    <div class="input-group mb-3 d-flex justify-content-center">
-                        <input type="text" class="form-control userCity" placeholder="Enter your favorite city:" id="searchInput">
+            <div class="row">
+                <div class="col justify-content-center screen">
+                    <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
+                        <h1>What Movie Are People Watching In Your Favorite City?</h1>
                     </div>
-                    <!-- </form> -->
+                    <div class="col-md-12 ">
+                        <!-- <form > -->
+                        <div class="input-group mb-3 d-flex justify-content-center">
+                            <input type="text" class="form-control userCity" placeholder="Enter your favorite city:"
+                                id="searchInput">
+                        </div>
+                        <!-- </form> -->
+                    </div>
+                    <div class="row ">
+                        <div class="col justify-content-center screen1">
+        
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> 
+           
+        </div>
         <!-- here is the next screen for movie API's information -->
-        <div class="row h-100 screen-2nd" >
+        <div class="row h-100 screen-2nd">
             <div class="col justify-content-center screen">
                 <div class="row confirmation">
                     <div class="col-md-12">
@@ -41,7 +50,7 @@
                         <div class="row buttons">
                             <div class='col-md-3'></div>
                             <button class="col-md-3" id='buttonyes'>Aboslutely, Fire away!</button>
-                            <button class="col-md-3"id='buttonno'>Nah, I think I'll go to sleep.</button>
+                            <button class="col-md-3" id='buttonno'>Nah, I think I'll go to sleep.</button>
                         </div>
                     </div>
                     <!-- next div show up for 1 sec. since user hit 'gotosleep' button -->
@@ -50,18 +59,19 @@
                             <div class="modal fade" id='wrongbutton'>
                                 <div class="modal-dialog modal-dialog-centered modal-lg ">
                                     <div class="modal-content">
-                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you anyways!</p>
+                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you
+                                            anyways!</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <p>People are watching:</p>
-                        <div class="poster"> 
-                        <!-- movie img alt tag has movie title + 'poster' -->
+                        <div class="poster">
+                            <!-- movie img alt tag has movie title + 'poster' -->
                         </div>
                     </div>
                     <div class="col-md-8" id="moviegenre">
@@ -79,7 +89,13 @@
                          -->
                     </div>
                 </div>
+                <div class="row ">
+                    <div class="col justify-content-center screen1">
+    
+                    </div>
+                </div>
             </div>
+           
         </div>
         <!-- here last screen for weather API's information and restaring application-->
         <div class="row h-100 screen-3d">
@@ -102,7 +118,7 @@
                         <!-- <p>movie genre placeholder to be deleted.</p> -->
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class='col-md-3'></div>
                     <button class="col-md-6 warmerLocation">
@@ -113,8 +129,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -123,9 +139,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-   
+
     <script src="./assets/script.js"></script>
 </body>
 
 </html>
-

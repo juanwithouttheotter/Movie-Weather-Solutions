@@ -1,6 +1,12 @@
 $(document).ready(function () {
-
-   
+    if (localStorage.getItem('savedMovies') !== null) {
+        var savedMovies = localStorage.getItem('savedMovies');
+        savedMovies = JSON.parse(savedMovies);
+        console.log(savedMovies);
+    } else {
+        var savedMovies = [];
+    }
+    
 
     //refacting the weather url
     $("#searchInput").keydown(function (event) {
@@ -20,7 +26,7 @@ $(document).ready(function () {
             onWeatherInformation(weather);
             $("#weathercategory").append(`
                 <div class="weatherCard col-md-4">
-                    <h2 class="row"> ${weather} </h2>
+                    <p class="row"> ${weather} </p>
                         <img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png" alt="${weather} icon" class="icon"/>
                     
                     <div class="row my-2"> Temperature: ${response.main.temp}\&degF </div>
@@ -47,7 +53,36 @@ $(document).ready(function () {
         return weatherMapping[weather]
 
     }
-
+    //function to store onto local storage
+    var storeMovie = function (movie) {
+        savedMovies.unshift(
+            {
+                'title': movie.title,
+                'release_date': movie.release_date,
+                'movie_poster': movie.poster_path
+            }
+        );
+        if (savedMovies.length > 6) {
+            savedMovies.pop();
+        }
+        localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+    }
+    //function to append saved movies
+    var seeOldMovies = function (savedMovies) {
+        $('.screen1').append(`
+            <div class="row old-movies">
+            </div>
+        `)
+        for (movie in savedMovies) {
+            $('.old-movies').append(`
+            <div class="col saved-movie">
+                <p>${savedMovies[movie].title}</p>
+                <p><img class="img1" style="max-width:100px;" src="https://image.tmdb.org/t/p/original/${savedMovies[movie].movie_poster}" alt="${savedMovies[movie].title} poster"></p>
+                <p class="row">${savedMovies[movie].release_date}</p>
+            </div>
+            `)
+        }
+    }
 
     function onWeatherInformation(weather) {
         var genreCode = getWeatherGenreMappings(weather);
@@ -92,17 +127,21 @@ $(document).ready(function () {
 
             $(".screen-1st").hide();
             $(".screen-2nd").show();
+            //call Function to store onto local storage
+            storeMovie(movie);
         });
     }
+
     $('.warmerLocation').on('click', function () {
-       window.location = "./index.html";
+        window.location = "./index.html";
     })
 
     $("#buttonyes").click(function () {
         lastscreen();
+        
     })
 
-    $("#buttonno").click(function(){
+    $("#buttonno").click(function () {
         $("#wrongbutton").modal('show');
         setInterval(() => {
             $(".screen-1st").hide(0);
@@ -118,4 +157,6 @@ $(document).ready(function () {
         $(".screen-2nd").hide();
         $(".screen-3d").show();
     }
+    //testing the appending function
+    seeOldMovies(savedMovies);
 });
