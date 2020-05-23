@@ -40,15 +40,15 @@ $(document).ready(function () {
 
     function getWeatherGenreMappings(weather) {
         var weatherMapping = {
-            Clear: [28, 10752],
-            Tornado: [9648],
-            Fog: [12, 16],
+            Clear: [28],
+            Tornado: [12],
+            Fog: [9648],
             Drizzle: [80],
-            Clouds: [37, 36],
-            Rain: [10749, 10402, 14],
-            Thunderstorm: [27, 878],
-            Snow: [18, 10751],
-            Mist: [35]
+            Clouds: [53],
+            Rain: [10749],
+            Thunderstorm: [27],
+            Snow: [10751],
+            Mist: [878]
         }
         return weatherMapping[weather]
 
@@ -90,7 +90,8 @@ $(document).ready(function () {
     function onWeatherInformation(weather) {
         var genreCode = getWeatherGenreMappings(weather);
         console.log(genreCode);
-        var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&with_genres=${genreCode.join()}`;
+        var pageVariation = Math.floor((Math.random() * 500));
+        var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=${pageVariation}&with_genres=${genreCode.join()}`;
         $.get(movieURL, function (response) {
             var randomMovie = Math.floor((Math.random() * response.results.length));
             console.log(response);
