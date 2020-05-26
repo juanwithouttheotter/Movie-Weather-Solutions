@@ -26,12 +26,12 @@ $(document).ready(function () {
             onWeatherInformation(weather);
             $("#weathercategory").append(`
                 <div class="weatherCard col-md-4">
-                    <p class="row"> ${weather} </p>
+                    <div><p> ${weather} </p></div>
                         <img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png" alt="${weather} icon" class="icon"/>
                     
-                    <div class="row my-2"> Temperature: ${response.main.temp}\&degF </div>
-                    <div class="row my-2"> Wind: ${response.wind.speed} mph </div>
-                    <div class="row my-2"> Humidity: ${response.main.humidity}% </div>
+                    <div><p> Temperature: ${response.main.temp}\&degF </p></div>
+                    <div><p> Wind: ${response.wind.speed} mph </p></div>
+                    <div><p> Humidity: ${response.main.humidity}% </p></div>
                 </div>
             `);
         });
@@ -76,9 +76,11 @@ $(document).ready(function () {
         for (movie in savedMovies) {
             $('.old-movies').append(`
             <div class="col saved-movie">
-                <p>${savedMovies[movie].title}</p>
-                <p><img class="img1" style="max-width:100px;" src="https://image.tmdb.org/t/p/original/${savedMovies[movie].movie_poster}" alt="${savedMovies[movie].title} poster"></p>
-                <p class="row">${savedMovies[movie].release_date}</p>
+                <div class="historyTitle"><p>${savedMovies[movie].title}</p></div>
+                <div class="historyImg">
+                <img style="max-width:100px;" src="https://image.tmdb.org/t/p/original/${savedMovies[movie].movie_poster}" alt="${savedMovies[movie].title} poster">
+                </div>
+                <div class="historyRelise"><p>${savedMovies[movie].release_date}</p></div>
             </div>
             `)
         }
@@ -110,13 +112,13 @@ $(document).ready(function () {
                 var firstvideo = response.results[0];
                 var youtubeUrl = `https://www.youtube.com/embed/${firstvideo.key}`;
 
-                var videohtml = `<p class="teaser"><iframe width="560" height="315" src="${youtubeUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>`;
+                var videohtml = `<div class="teaser"><iframe src="${youtubeUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
                 $("#moviegenre").append(videohtml);
             });
 
             // poster output on 2nd screen
             $(".poster").append(`<img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster">`);
-            // poster output in last screen
+            // poster output on last screen
             $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
 
             $("#moviegenre2").append(`
