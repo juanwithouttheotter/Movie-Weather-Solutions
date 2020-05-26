@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather Movie Picker</title>
 </head>
@@ -17,10 +17,11 @@
     <div class="container">
         <!-- here is a start screen, with the only one question and input form -->
         <div class="row h-100 screen-1st">
-            <div class="row">
-                <div class="col justify-content-center screen">
-                    <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron">
-                        <h1>What Movie Are People Watching In Your Favorite City?</h1>
+            
+            <div class="col justify-content-center screen">
+                <div class="row ">
+                    <div class="col text-light d-flex justify-content-center bg-dark rounded jumbotron question1">
+                        <h2>What Movie Are People Watching In Your Favorite City?</h2>
                     </div>
                     <div class="col-md-12 ">
                         <!-- <form > -->
@@ -30,14 +31,12 @@
                         </div>
                         <!-- </form> -->
                     </div>
-                    <div class="row ">
-                        <div class="col justify-content-center screen1">
-        
-                        </div>
-                    </div>
                 </div>
+                <div class="row ">
+                    <div class="col justify-content-center screen1"></div>
+                </div>
+                <a href="http://www.freepik.com">Designed by dgim-studio / Freepik</a>
             </div>
-           
         </div>
         <!-- here is the next screen for movie API's information -->
         <div class="row h-100 screen-2nd">
@@ -59,22 +58,22 @@
                             <div class="modal fade" id='wrongbutton'>
                                 <div class="modal-dialog modal-dialog-centered modal-lg ">
                                     <div class="modal-content">
-                                        <p>I think you accidentally hit the wrong button. No worries, I'll tell you
-                                            anyways!</p>
+                                        <h5>I think you accidentally hit the wrong button. No worries, I'll tell you
+                                            anyways!</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>People are watching:</p>
+                <div class="row movieInfo">
+                    <div class="col-md-3">
+                        <h5>People are watching:</h5>
                         <div class="poster">
                             <!-- movie img alt tag has movie title + 'poster' -->
                         </div>
                     </div>
-                    <div class="col-md-8" id="moviegenre">
+                    <div class="col-md-9" id="moviegenre">
                         <!-- <p>movie genre placeholder to be deleted.</p>
                         <p>Movie title:</p>
                         <p>
@@ -101,17 +100,17 @@
         <div class="row h-100 screen-3d">
             <!-- on the top of the screen show up the same movies info as before in less scale -->
             <div class="col justify-content-center screen">
-                <div class="row">
+                <div class="row weatherToday">
                     <div class="col-md-4">
-                        <p>Because the weather in that city is:</p>
+                        <h5>Because the weather in that city is:</h5>
                     </div>
-                    <div class="col-md-8 weatherToday" id="weathercategory">
+                    <div class="col-md-8" id="weathercategory">
                         <!-- <p>weather category placeholder to be deleted.</p> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <p>People are watching:</p>
+                        <h5>People are watching:</h5>
                         <div class="poster2"></div>
                     </div>
                     <div class="col-md-8 movieChoice" id="moviegenre2">

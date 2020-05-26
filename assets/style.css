@@ -6,8 +6,23 @@
 } */
 html, body {
     height: 100%;
+    }
+body{
+    background-image: url('./media/seamless-pattern-with-cinema-elements/1155.jpg');
+    background-size: 20%;
+    background-repeat: repeat;
+    padding: 2%;
+    font-family: 'Francois One', sans-serif;
 }
-
+a{  
+    position: absolute;
+    bottom: -5vh;
+    left : 5vh;
+    color: black;
+}
+p{
+    font-size: 15px;
+}
 .container {
     height: 100%;
 }
@@ -18,17 +33,29 @@ html, body {
 
 .screen{
     margin: auto;
-    padding: 5%;
+    padding: 2%;
+    background-color:rgba(255, 255, 255, 0.829);
+    border-radius: 30px;
+    min-height: 100%;
 }
 
 .rounded,
-.buttons,
 .warmerLocation{
     text-align: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-} 
+    margin-left: 2%;
+    margin-right: 2%;
+}
 
+.buttons{
+    text-align: center;
+    margin: 2%;
+}
+.question1{
+    margin-top: 5%;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .form-control{
     max-width: 30%;
     min-width: 200px;
@@ -37,10 +64,12 @@ div.poster{
     margin: auto;
 }
 .img1{
+    max-height: 35vh;
     max-width: 90%;
     margin: auto;
 }
 .img2{
+    max-height: 35vh;
     max-width: 90%;
     margin: auto;
 }
@@ -64,26 +93,46 @@ button:hover{
     height: 40vh;
     color: red
 }
-
-.modal-content p{
+.movieInfo{
+    margin-bottom: 1%;
+}
+.modal-content h5{
     margin: auto;
 }
-.row.confirmation{
-    margin-bottom: 2%;
-}
-/* .moviegenre{
-    position: relative;
-} */
+
 .teaser{
-    position: relative;
-    overflow: hidden;
-  padding-top: 56.25%;
+    max-height: 20vh;
+    float: left;
 }
 .teaser iframe{
     border: 0;
-   height: 100%;
-   left: 0;
-   position: absolute;
-   top: 0;
-   width: 100%;
+}
+.saved-movie{
+    margin: auto;
+    text-align: center;
+}
+
+div.historyTitle{
+    height: 8vh;
+}   
+.historyTitle p{
+    overflow: hidden;
+    margin: 0;
+    vertical-align: text-bottom;
+    margin: auto;
+}
+.historyImg{
+    margin-bottom: 5%;
+}
+.historyRelise{
+    padding: 0;
+    margin: auto;
+}
+.weatherCard{
+    background-color: white;
+    border-radius: 10px;
+    padding: 2%;
+}
+.weatherToday{
+    margin-bottom: 1%;
 }
