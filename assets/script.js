@@ -7,13 +7,10 @@ $(document).ready(function () {
         var savedMovies = [];
     }
 
-
-    //refacting the weather url
     $("#searchInput").keydown(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             var userCityString = $("#searchInput").val();
-            console.log(userCityString);
             showWeatherConditions(userCityString);
         }
     });
@@ -22,7 +19,6 @@ $(document).ready(function () {
         var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + userCityString + "&appid=b212266a3b5800f1c727bf9539b273bb&units=imperial";
         $.get(weatherUrl, function (response) {
             var weather = response.weather[0].main;
-            console.log(weather);
             onWeatherInformation(weather);
             $("#weathercategory").append(`
                 <div class="weatherCard col-md-4">
@@ -53,7 +49,6 @@ $(document).ready(function () {
         return weatherMapping[weather]
 
     }
-    //function to store onto local storage
     var storeMovie = function (movie) {
         var alreadySavedMovie = savedMovies.find(function (savedMovie) { return savedMovie.title == movie.title });
         if (alreadySavedMovie == null) {
@@ -70,7 +65,6 @@ $(document).ready(function () {
             localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
         }
     }
-    //function to append saved movies
     var seeOldMovies = function (savedMovies) {
         $('.screen1').append(`
             <div class="row old-movies">
@@ -91,16 +85,12 @@ $(document).ready(function () {
 
     function onWeatherInformation(weather) {
         var genreCode = getWeatherGenreMappings(weather);
-        console.log(genreCode);
         var pageVariation = Math.floor((Math.random() * 500));
         var movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=${pageVariation}&with_genres=${genreCode.join()}`;
         $.get(movieURL, function (response) {
             var randomMovie = Math.floor((Math.random() * response.results.length));
-            console.log(response);
             var movie = response.results[randomMovie];
-            console.log(movie);
             var title = movie.title;
-            console.log(title);
             var releaseDate = movie.release_date;
             var overview = movie.overview;
             var poster = movie.poster_path;
@@ -120,9 +110,7 @@ $(document).ready(function () {
                 $("#moviegenre").append(videohtml);
             });
 
-            // poster output on 2nd screen
             $(".poster").append(`<img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster">`);
-            // poster output on last screen
             $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
 
             $("#moviegenre2").append(`
@@ -133,7 +121,6 @@ $(document).ready(function () {
 
             $(".screen-1st").hide();
             $(".screen-2nd").show();
-            //call Function to store onto local storage
             storeMovie(movie);
         });
     }
@@ -163,6 +150,5 @@ $(document).ready(function () {
         $(".screen-2nd").hide();
         $(".screen-3d").show();
     }
-    //testing the appending function
     seeOldMovies(savedMovies);
 });
