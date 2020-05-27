@@ -75,7 +75,7 @@ $(document).ready(function () {
             <div class="col saved-movie">
                 <div class="historyTitle"><p>${savedMovies[movie].title}</p></div>
                 <div class="historyImg">
-                <img style="max-width:100px;" src="https://image.tmdb.org/t/p/original/${savedMovies[movie].movie_poster}" alt="${savedMovies[movie].title} poster">
+                <img style="max-width:100px;" src="https://image.tmdb.org/t/p/original/${savedMovies[movie].movie_poster}" onerror="this.onerror=null;this.src='./assets/PosterComingSoon.jpg';" alt="${savedMovies[movie].title} poster">
                 </div>
                 <div class="historyRelise"><p>${savedMovies[movie].release_date}</p></div>
             </div>
@@ -110,8 +110,8 @@ $(document).ready(function () {
                 $("#moviegenre").append(videohtml);
             });
 
-            $(".poster").append(`<img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster">`);
-            $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" alt="${title} poster"></p>`);
+            $(".poster").append(`<img class="img1" src="https://image.tmdb.org/t/p/original/${poster}" onerror="this.onerror=null;this.src='./assets/PosterComingSoon.jpg';"alt="${title} poster">`);
+            $(".poster2").append(`<p><img class="img2" src="https://image.tmdb.org/t/p/original/${poster}" onerror="this.onerror=null;this.src='./assets/PosterComingSoon.jpg';" alt="${title} poster"></p>`);
 
             $("#moviegenre2").append(`
             <p>Movie title: ${title}.</p>
