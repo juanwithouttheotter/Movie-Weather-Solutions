@@ -98,7 +98,7 @@ $(document).ready(function () {
             $("#moviegenre").append(`
                 <p>Movie title: ${title}.</p>
                 <p>Movie release date: ${releaseDate}.</p>
-                <p>Movie Overview: ${overview}.</p>`
+                <p class="overview">Movie Overview: ${overview}.</p>`
             );
 
             var videosUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=e7f668e97c13dfe1d5f7100b7a29d6bd&language=en-US`;

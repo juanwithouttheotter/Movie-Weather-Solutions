@@ -21,6 +21,7 @@ a{
     color: black;
 }
 p{
+    margin-top: 0;
     font-size: 15px;
 }
 .container {
@@ -33,28 +34,21 @@ p{
 
 .screen{
     margin: auto;
-    padding: 2%;
+    padding: 3%;
     background-color:rgba(255, 255, 255, 0.829);
     border-radius: 30px;
     min-height: 100%;
-}
-
-.rounded,
-.warmerLocation{
-    text-align: center;
-    margin-left: 2%;
-    margin-right: 2%;
 }
 
 .buttons{
     text-align: center;
     margin: 2%;
 }
-.question1{
-    margin-top: 5%;
+.question{
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 .form-control{
     max-width: 30%;
@@ -93,16 +87,21 @@ button:hover{
     height: 40vh;
     color: red
 }
-.movieInfo{
-    margin-bottom: 1%;
-}
 .modal-content h5{
     margin: auto;
 }
+.movieInfo{
+    margin-bottom: 1%;
+}
 
+.overview{
+    display: inline;
+}
 .teaser{
     max-height: 20vh;
     float: left;
+    margin-top: 1%;
+    margin-right: 1%;
 }
 .teaser iframe{
     border: 0;
@@ -113,20 +112,25 @@ button:hover{
 }
 
 div.historyTitle{
+    position: relative;
     height: 8vh;
 }   
 .historyTitle p{
-    overflow: hidden;
-    margin: 0;
-    vertical-align: text-bottom;
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
     margin: auto;
 }
+
 .historyImg{
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 .historyRelise{
     padding: 0;
     margin: auto;
+}
+.historyRelise p{
+    margin-bottom: 2%;
 }
 .weatherCard{
     background-color: white;
@@ -134,5 +138,11 @@ div.historyTitle{
     padding: 2%;
 }
 .weatherToday{
-    margin-bottom: 1%;
+    margin-bottom: 2%;
+}
+
+.warmerLocation{
+    text-align: center;
+    margin: auto;
+    width: 90%;
 }
