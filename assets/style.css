@@ -1,9 +1,3 @@
-/* *{
-    border: 1px;
-    border-color: brown;
-    border-style: solid;
-    color: brown;
-} */
 html, body {
     height: 100%;
     }
@@ -141,7 +135,5 @@ button:hover{
 }
 
 .warmerLocation{
-    text-align: center;
-    margin: auto;
     width: 90%;
 }
