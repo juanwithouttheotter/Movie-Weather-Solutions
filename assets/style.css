@@ -34,10 +34,7 @@ p{
     min-height: 100%;
 }
 
-.buttons{
-    text-align: center;
-    margin: 2%;
-}
+
 .question{
     max-width: 90%;
     margin-left: auto;
@@ -52,17 +49,10 @@ div.poster{
     margin: auto;
 }
 .img1{
-    max-height: 35vh;
-    max-width: 90%;
-    margin: auto;
+    max-height: 50vh;
+    max-width: 100%;
 }
-.img2{
-    max-height: 35vh;
-    max-width: 90%;
-    margin: auto;
-}
-
-button:hover{
+#buttonyes:hover{
     background-color: rgb(106, 178, 245);
 }
 
@@ -70,11 +60,6 @@ button:hover{
     background-color: rgb(212, 82, 82);
 }
 
-.screen-2nd,
-.screen-3d
-{
-    display:none;
-}
 .modal-content{
     font-weight: bold;
     text-align: center;
@@ -84,13 +69,7 @@ button:hover{
 .modal-content h5{
     margin: auto;
 }
-.movieInfo{
-    margin-bottom: 1%;
-}
 
-.overview{
-    display: inline;
-}
 .teaser{
     position: relative;
     overflow: hidden;
@@ -104,34 +83,8 @@ button:hover{
     top: 0;
     width: 100%;
 }
-.saved-movie{
-    position: relative;
-    margin: auto;
-    text-align: center;
-}
-
-.historyTitle p{
-    width: 100%;
-    margin: auto;
-}
-
-.historyImg{
-    margin-bottom: 2%;
-}
-.historyRelise{
-    padding: 0;
-    margin: auto;
-}
-.historyRelise p{
-    margin-bottom: 2%;
-}
 .weatherCard{
     background-color: white;
-    border-radius: 10px;
-    padding: 2%;
-}
-.weatherToday{
-    margin-bottom: 2%;
 }
 
 .warmerLocation{
