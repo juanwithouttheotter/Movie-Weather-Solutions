@@ -90,3 +90,7 @@ div.poster{
 .warmerLocation{
     width: 90%;
 }
+
+.homeBtn {
+    position: static;
+}
